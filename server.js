@@ -1,13 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+require('dotenv').config()
+const port = process.env.PORT || 3000
 const app = express();
+const path = require("path")
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static('client/build'));
 
-const mongoAtlasUri = 'mongodb+srv://kara:mernstack@mern.euolu.mongodb.net/GroceryList?retryWrites=true&w=majority';
+//This route serves the React app
+app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
+
+
+
+const mongoAtlasUri = process.env.MONGO_URI;
 //Connect to MongoDB Atlas
 mongoose.connect(mongoAtlasUri, {
 	useNewUrlParser: true, 
@@ -59,4 +67,6 @@ app.put('/list/update/:id', async (req, res) => {
 	res.json(list);
 });
 
-app.listen(3001);
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}.`)
+});
