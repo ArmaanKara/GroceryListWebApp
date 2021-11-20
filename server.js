@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config()
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3001;
 const app = express();
 const path = require("path")
 
@@ -15,7 +15,7 @@ app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build
 
 
 
-const mongoAtlasUri = process.env.MONGO_URI;
+const mongoAtlasUri = process.env.MONGODB_URI;
 //Connect to MongoDB Atlas
 mongoose.connect(mongoAtlasUri, {
 	useNewUrlParser: true, 
