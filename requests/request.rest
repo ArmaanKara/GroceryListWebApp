@@ -1,0 +1,27 @@
+GET http://localhost:3001/lists 
+
+###
+
+POST http://localhost:3001/list/new 
+Content-Type: application/json
+
+{
+"text": "Pick up boat"
+}
+
+###
+
+DELETE http://localhost:3001/list/delete/6199557e0e9c539a142d7a05
+
+###
+
+GET http://localhost:3001/list/complete/6199557e0e9c539a142d7a05
+
+###
+
+PUT http://localhost:3001/list/update/61994c1f452d676f5596199557e0e9c539a142d7a050f48d 
+Content-Type: application/json
+
+{
+"text": "Go Shopping for Milk"
+}

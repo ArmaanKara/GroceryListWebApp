@@ -1,0 +1,1 @@
+DELETE http://localhost:3001/grocerylist/delete/6197fc4373e6624a896d04d0
