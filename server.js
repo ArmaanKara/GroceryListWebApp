@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 
-const mongoAtlasUri = process.env.MONGODB_URI;
+const mongoAtlasUri = process.env.MONGODB_URI || 'mongodb+srv://kara:mernstack@mern.euolu.mongodb.net/GroceryList?retryWrites=true&w=majority';
 //Connect to MongoDB Atlas
 mongoose.connect(mongoAtlasUri, {
 	useNewUrlParser: true, 
